@@ -1,0 +1,111 @@
+11
+1
+GV001
+Luong Tran Ngoc Khiet
+Nam
+Lap Trinh Huong Doi Tuong
+5.42
+204
+2
+9
+75000
+1
+GV002
+Luong Tran Hy Hien
+Nam
+Quan Ly Cong Viec Hieu Qua theo Agile
+5.08
+190
+3
+8
+75000
+1
+GV003
+Le Minh Triet
+Nam
+Nhap mon Mang may tinh
+4.74
+187
+2
+5
+70000
+2
+TG001
+Nguyen Phuc Thinh
+Nam
+Co so Toan trong CNTT
+0
+80
+3
+STU_001
+190000
+2
+TG002
+Vo Van Ngoc Huy
+Nam
+Tam Ly Hoc Giao Duc
+0
+80
+0
+USSH_001
+210000
+1
+GV004
+Tran Khai Xuan
+Nu
+Phuong Phap NCKH va Su Pham Ung Dung
+5.76
+170
+2
+12
+80000
+2
+TG003
+Doan Minh Tri
+Nam
+Phan Tich va Thiet Ke Giai Thuat
+0
+60
+0
+SGU_001
+180000
+1
+GV005
+Le Thuy Trang
+Nu
+Tieng Anh Dai Cuong
+5.08
+220
+2
+6
+70000
+1
+GV006
+Trinh Mai Phuong
+Nu
+Tieng Anh Dai Cuong
+5.42
+220
+2
+9
+70000
+1
+GV007
+Ninh Gia Hoa
+Nam
+Ngon Ngu Hoc
+5.08
+200
+0
+7
+70000
+1
+GV008
+Tran Thi Thanh Nga
+Nu
+Ky Thuat Lam Banh Au
+5.08
+160
+4
+6
+65000
