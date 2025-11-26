@@ -48,7 +48,8 @@ protected:
     int soTietVang;  
 public:
     GiangVien(string ma="", string ten="", string gt="", string mon="", float hsl=0, int tiet=0, int vang=0);
-    virtual ~GiangVien(){} 
+    GiangVien(const GiangVien &g);
+    virtual ~GiangVien();
     
     void setMaDD(string ma); void setHoTen(string ten); void setGioiTinh(string gt);
     void setMonHoc(string mon); void setHeSoLuong(float hsl); void setSoTietDay(int s); void setSoTietVang(int v);
@@ -141,6 +142,11 @@ public:
 GiangVien::GiangVien(string ma, string ten, string gt, string mon, float hsl, int tiet, int vang) { 
     maDD=ma; hoTen=ten; gioiTinh=gt; monHoc=mon; heSoLuong=hsl; soTietDay=tiet; soTietVang=vang;
 }
+GiangVien::GiangVien(const GiangVien &g) {
+    maDD=g.maDD; hoTen=g.hoTen; gioiTinh=g.gioiTinh; monHoc=g.monHoc;
+    heSoLuong=g.heSoLuong; soTietDay=g.soTietDay; soTietVang=g.soTietVang;
+}
+GiangVien::~GiangVien(){}
 void GiangVien::setMaDD(string ma){ maDD=ma; } void GiangVien::setHoTen(string ten){ hoTen=ten; }
 void GiangVien::setGioiTinh(string gt){ gioiTinh=gt; } void GiangVien::setMonHoc(string mon){ monHoc=mon; }
 void GiangVien::setHeSoLuong(float hsl){ heSoLuong=hsl; } void GiangVien::setSoTietDay(int s){ soTietDay=s; }
@@ -210,6 +216,8 @@ void CoHuu::HienThiThongTin() {
          << right << setw(8) << getSoTietThucTe() 
          << right << setw(15) << ThanhToanLuong() << endl;
 }
+
+// GIU NGUYEN CODE CUA BAN
 string CoHuu::LayPhieuLuong() {
     stringstream ss;
     string line = "==============================================================\n";
@@ -260,11 +268,13 @@ long ThinhGiang::ThanhToanLuong() { return getSoTietThucTe() * tienTheoTiet; }
 
 void ThinhGiang::HienThiThongTin() {
     HienThiXuatPhat(); 
+    // Tang cot Loai len 12 de vua chu Thinh Giang
     cout << left << setw(12) << "Thinh Giang" 
          << right << setw(8) << getSoTietThucTe() 
          << right << setw(15) << ThanhToanLuong() << endl;
 }
 
+// GIU NGUYEN CODE CUA BAN
 string ThinhGiang::LayPhieuLuong() {
     stringstream ss;
     string line = "==============================================================\n";
@@ -278,7 +288,7 @@ string ThinhGiang::LayPhieuLuong() {
     ss << "|| " << left << setw(35) << "4. Don gia:" << right << setw(21) << (to_string(tienTheoTiet) + " VND") << " ||\n";
     ss << "||                                                          ||\n";
     ss << line << "|| TONG THUC LANH: " << right << setw(39) << (to_string(ThanhToanLuong()) + " VND") << "  ||\n" << line;
-    return ss.str();
+    return ss.str(); 
 }
 
 void ThinhGiang::GhiFile(ofstream &f) { GiangVien::GhiFile(f); f << maGV << endl << tienTheoTiet << endl; }
@@ -304,16 +314,16 @@ int TimViTriTheoMa(GiangVien* ds[], int n, string maCanTim) {
 }
 
 void HienThiHeaderBang() {
-    Mau(14); 
+    Mau(14); // Vang
     cout << left << setw(10) << "Ma DD" 
          << left << setw(32) << "Ho Ten"   
          << left << setw(6)  << "GT" 
          << left << setw(45) << "Mon Hoc"  
-         << left << setw(12) << "Loai"     
+         << left << setw(12) << "Loai"     // Tang len 12
          << right << setw(8) << "Tiet" 
          << right << setw(15) << "Thuc Linh" << endl;
     cout << setfill('-'); cout << setw(128) << "-" << endl; cout << setfill(' ');
-    Mau(15); 
+    Mau(15); // Trang
 }
 
 void GhiDanhSachFile(GiangVien* ds[], int n) {
@@ -367,13 +377,13 @@ void SapXepTheoLuong(GiangVien* ds[], int n, bool tangDan) {
             bool canDoiCho = false;
             
             if (tangDan) {
-                if (luongI > luongJ) canDoiCho = true; // Thấp đứng trước, nếu I lớn hơn J thì đổi
+                if (luongI > luongJ) canDoiCho = true; // Tháº¥p Ä‘á»©ng trÆ°á»›c, náº¿u I lá»›n hÆ¡n J thÃ¬ Ä‘á»•i
             } else {
-                if (luongI < luongJ) canDoiCho = true; // Cao đứng trước, nếu I bé hơn J thì đổi
+                if (luongI < luongJ) canDoiCho = true; // Cao Ä‘á»©ng trÆ°á»›c, náº¿u I bÃ© hÆ¡n J thÃ¬ Ä‘á»•i
             }
 
             if (canDoiCho) {
-                // Hoán vị con trỏ (Swap)
+                // HoÃ¡n vá»‹ con trá» (Swap)
                 GiangVien* temp = ds[i];
                 ds[i] = ds[j];
                 ds[j] = temp;
@@ -397,7 +407,7 @@ void BoLocGiangVien(GiangVien* ds[], int n) {
     int chon; cin >> chon;
     if (chon == 0) return;
 
-    // --- XỬ LÝ SẮP XẾP ---
+    // --- Xá»¬ LÃ Sáº®P Xáº¾P ---
     if (chon == 4 || chon == 5) {
         bool tangDan = (chon == 5); 
         SapXepTheoLuong(ds, n, tangDan);
@@ -490,16 +500,15 @@ void InGiua(string text, int width = 155) {
     int padding = (width - len) / 2;
     
     if (padding > 0) {
-        // In khoảng trắng
+        // In khoáº£ng tráº¯ng
         for(int i=0; i<padding; i++) cout << " "; 
     }
     cout << text << endl;
 }
-// Hàm in Logo ASCII Art "HCMUE"
+// HÃ m in Logo ASCII Art "HCMUE"
 void InLogoTruong() {
-    Mau(11); // Xanh Lơ
+    Mau(11); // Xanh LÆ¡
     cout << "\n";
-    // Copy từng dòng logo vào hàm InGiua, nó sẽ tự căn
     InGiua("  _    _    _____   __  __   _   _   ______ ");
     InGiua(" | |  | |  / ____| |  \\/  | | | | | |  ____|");
     InGiua(" | |__| | | |      | \\  / | | | | | | |__   ");
@@ -508,7 +517,7 @@ void InLogoTruong() {
     InGiua(" |_|  |_|  \\_____| |_|  |_|  \\___/  |______|");
     cout << "\n";
     InGiua("TRUONG DAI HOC SU PHAM TP. HO CHI MINH");
-    Mau(15); // Trả lại màu trắng
+    Mau(15); // 
 }
 void menu() {
     Mau(11); // Xanh Lo
@@ -526,19 +535,19 @@ void menu() {
     cout << "||  0. Thoat                                              ||\n";
     cout << "============================================================\n";
     cout << ">> Nhap lua chon: ";
-    Mau(15); 
+    Mau(15); // Trang
 }
 void GoChu(string text, int delay) {
     for (int i = 0; i < text.length(); i++) {
         cout << text[i];
-        Sleep(delay); 
+        Sleep(delay); // 
     }
     cout << endl;
 }
 int main() {
     GiangVien* ds[100]; int n = 0; string chon;
     DocDanhSachFile(ds, n);
-    Mau(14); 
+    Mau(14); // VÃ ng
     GoChu("Dang khoi dong he thong quan ly...", 30); 
     Sleep(500);
     GoChu("Ket noi du lieu...", 30);
