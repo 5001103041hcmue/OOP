@@ -319,7 +319,7 @@ void HienThiHeaderBang() {
          << left << setw(32) << "Ho Ten"   
          << left << setw(6)  << "GT" 
          << left << setw(45) << "Mon Hoc"  
-         << left << setw(12) << "Loai"     // Tang len 12
+         << left << setw(12) << "Loai"     
          << right << setw(8) << "Tiet" 
          << right << setw(15) << "Thuc Linh" << endl;
     cout << setfill('-'); cout << setw(128) << "-" << endl; cout << setfill(' ');
@@ -377,13 +377,12 @@ void SapXepTheoLuong(GiangVien* ds[], int n, bool tangDan) {
             bool canDoiCho = false;
             
             if (tangDan) {
-                if (luongI > luongJ) canDoiCho = true; // Tháº¥p Ä‘á»©ng trÆ°á»›c, náº¿u I lá»›n hÆ¡n J thÃ¬ Ä‘á»•i
+                if (luongI > luongJ) canDoiCho = true; 
             } else {
-                if (luongI < luongJ) canDoiCho = true; // Cao Ä‘á»©ng trÆ°á»›c, náº¿u I bÃ© hÆ¡n J thÃ¬ Ä‘á»•i
+                if (luongI < luongJ) canDoiCho = true; 
             }
 
             if (canDoiCho) {
-                // HoÃ¡n vá»‹ con trá» (Swap)
                 GiangVien* temp = ds[i];
                 ds[i] = ds[j];
                 ds[j] = temp;
@@ -407,7 +406,6 @@ void BoLocGiangVien(GiangVien* ds[], int n) {
     int chon; cin >> chon;
     if (chon == 0) return;
 
-    // --- Xá»¬ LÃ Sáº®P Xáº¾P ---
     if (chon == 4 || chon == 5) {
         bool tangDan = (chon == 5); 
         SapXepTheoLuong(ds, n, tangDan);
