@@ -210,8 +210,6 @@ void CoHuu::HienThiThongTin() {
          << right << setw(8) << getSoTietThucTe() 
          << right << setw(15) << ThanhToanLuong() << endl;
 }
-
-// GIU NGUYEN CODE CUA BAN
 string CoHuu::LayPhieuLuong() {
     stringstream ss;
     string line = "==============================================================\n";
@@ -262,13 +260,11 @@ long ThinhGiang::ThanhToanLuong() { return getSoTietThucTe() * tienTheoTiet; }
 
 void ThinhGiang::HienThiThongTin() {
     HienThiXuatPhat(); 
-    // Tang cot Loai len 12 de vua chu Thinh Giang
     cout << left << setw(12) << "Thinh Giang" 
          << right << setw(8) << getSoTietThucTe() 
          << right << setw(15) << ThanhToanLuong() << endl;
 }
 
-// GIU NGUYEN CODE CUA BAN
 string ThinhGiang::LayPhieuLuong() {
     stringstream ss;
     string line = "==============================================================\n";
@@ -308,16 +304,16 @@ int TimViTriTheoMa(GiangVien* ds[], int n, string maCanTim) {
 }
 
 void HienThiHeaderBang() {
-    Mau(14); // Vang
+    Mau(14); 
     cout << left << setw(10) << "Ma DD" 
          << left << setw(32) << "Ho Ten"   
          << left << setw(6)  << "GT" 
          << left << setw(45) << "Mon Hoc"  
-         << left << setw(12) << "Loai"     // Tang len 12
+         << left << setw(12) << "Loai"     
          << right << setw(8) << "Tiet" 
          << right << setw(15) << "Thuc Linh" << endl;
     cout << setfill('-'); cout << setw(128) << "-" << endl; cout << setfill(' ');
-    Mau(15); // Trang
+    Mau(15); 
 }
 
 void GhiDanhSachFile(GiangVien* ds[], int n) {
@@ -543,7 +539,7 @@ int main() {
     GiangVien* ds[100]; int n = 0; string chon;
     DocDanhSachFile(ds, n);
     Mau(14); // Vàng
-    GoChu("Dang khoi dong he thong quan ly...", 30); // Chữ chạy vèo vèo
+    GoChu("Dang khoi dong he thong quan ly...", 30); 
     Sleep(500);
     GoChu("Ket noi du lieu...", 30);
     Sleep(500);
