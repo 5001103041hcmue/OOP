@@ -526,19 +526,19 @@ void menu() {
     cout << "||  0. Thoat                                              ||\n";
     cout << "============================================================\n";
     cout << ">> Nhap lua chon: ";
-    Mau(15); // Trang
+    Mau(15); 
 }
 void GoChu(string text, int delay) {
     for (int i = 0; i < text.length(); i++) {
         cout << text[i];
-        Sleep(delay); // Tạm dừng một chút rồi in chữ tiếp theo
+        Sleep(delay); 
     }
     cout << endl;
 }
 int main() {
     GiangVien* ds[100]; int n = 0; string chon;
     DocDanhSachFile(ds, n);
-    Mau(14); // Vàng
+    Mau(14); 
     GoChu("Dang khoi dong he thong quan ly...", 30); 
     Sleep(500);
     GoChu("Ket noi du lieu...", 30);
